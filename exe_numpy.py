@@ -161,6 +161,6 @@ def create_3d_array():
     """
     The function creates 3-D array and fill the array elements with values using unsigned integer (0 to 255).
     :return: The array that created.
-    """cd 
+    """
     return numpy.random.randint(255, size=(300,400,5))
 
