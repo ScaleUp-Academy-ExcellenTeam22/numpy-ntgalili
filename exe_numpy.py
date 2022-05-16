@@ -55,7 +55,10 @@ def add_vector_to_rows(matrix: numpy.ndarray,to_add: numpy.ndarray) -> numpy.nda
 
 
 #6
-def sin_draw(a=(-1),b=1,c=1):
+def sin_draw():
+    """
+    The function calculates the x and y coordinates for points on a sine curve and plots the points
+    """
     x = numpy.linspace(-numpy.pi, numpy.pi)
     matplotlib.pyplot.plot(x, numpy.sin(x))
     matplotlib.pyplot.show()
@@ -63,6 +66,9 @@ def sin_draw(a=(-1),b=1,c=1):
 
 #7
 def create_random_matrix():
+    """
+    The function creates a matrix with random values and then replaces the first and the last lines
+    """
     matrix = numpy.random.rand(4, 4)
     print(matrix)
     matrix[[0,-1]]=matrix[[-1,0]]
@@ -70,56 +76,91 @@ def create_random_matrix():
 
 
 #8
-def replace_numbers(arr_of_nums, new_number,num_to_replace):
+def replace_numbers(arr_of_nums: numpy.ndarray, new_number: int,num_to_replace: int) -> tuple:
+    """
+    replace all numbers in a given array which is equal, less and greater to a given number.
+    :param arr_of_nums: array of numbers
+    :param new_number: The number to replace
+    :param num_to_replace: The number for comparison.
+    :return: The three new arrays
+    """
     return numpy.where(arr_of_nums == num_to_replace,new_number,arr_of_nums),numpy.where(arr_of_nums < num_to_replace,new_number,arr_of_nums),numpy.where(arr_of_nums > num_to_replace,new_number,arr_of_nums)
 
 
-
 #9
-def mult_array(a_array,b_array):
+def mult_array(a_array: numpy.ndarray,b_array: numpy.ndarray) -> numpy.ndarray:
+    """
+    The function multiplies two given arrays of same size element-by-element.
+    :param a_array: array of numbers
+    :param b_array: array of numbers
+    :return: The new array
+    """
     return a_array * b_array
 
 
 #10
-def sort_matrix(matrix):
+def sort_array(array_to_sort: numpy.ndarray):
+    """
+    The function sorts an along the first, last axis of an array
+    :param array_to_sort: array of numbers to sort
+    """
     print("original array:")
-    print(matrix)
-    matrix=numpy.sort(matrix,axis=0)
+    print(array_to_sort)
+    array_to_sort=numpy.sort(array_to_sort,axis=0)
     print("Sort along the first axis:")
-    print(matrix)
+    print(array_to_sort)
     print("Sort along the last axis:")
-    print(numpy.sort(matrix,axis=1))
+    print(numpy.sort(array_to_sort,axis=1))
 
 
 #11
 def one_diagonal():
+    """
+    The function creates a 3-D array with ones on a diagonal and zeros elsewhere.
+    :return: The matrix that created
+    """
     matrix = numpy.zeros((3, 3), dtype=int)
     numpy.fill_diagonal(matrix,1)
     return matrix
 
 
 #12
-def remove_single_dimensional(array_to_squeeze):
+def remove_single_dimensional(array_to_squeeze: numpy.ndarray):
+    """
+    The function removes single-dimensional entries from a specified shape.
+    :param array_to_squeeze: Array for reducing dimensions.
+    :return: The squeeze array.
+    """
     return numpy.squeeze(array_to_squeeze, axis=None)
 
 
 #13
-def one__d_to_two_d(a_array,b_array):
+def one__d_to_two_d(a_array: numpy.ndarray, b_array: numpy.ndarray):
+    """
+    The function converts two 1-D arrays into a 2-D array.
+    :param a_array: first array to the new 2-D array.
+    :param b_array: second array to the new 2-D array.
+    :return: The new array
+    """
     return numpy.array(list(zip(a_array,b_array)))
 
 
 #14
 def combine_arrays(one_d,two_d):
+    """
+    The function combines a one and a two dimensional array together and display their elements.
+    :param one_d:first array to combine.
+    :param two_d:second array to combine.
+    """
     for i, j in numpy.nditer([one_d, two_d]):
         print("%d:%d" % (i, j), )
 
 
 #15
 def create_3d_array():
-    return numpy.random.randint(255,size=(300,400,5))
+    """
+    The function creates 3-D array and fill the array elements with values using unsigned integer (0 to 255).
+    :return: The array that created.
+    """cd 
+    return numpy.random.randint(255, size=(300,400,5))
 
-m = numpy.array([[1,2,3],[4,5,6]])
-print(m)
-v = numpy.matrix('1 2 ')
-print(replace_numbers(numpy.array([[1,2,3,4,5,6]]), 9,3))
-#print(numpy.random.rand(4, 4))
