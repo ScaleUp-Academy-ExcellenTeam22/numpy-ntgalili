@@ -68,14 +68,14 @@ def sin_draw():
 
 
 #7
-def create_random_matrix():
+def create_random_matrix() -> numpy.ndarray:
     """
-    The function creates a matrix with random values and then replaces the first and the last lines
+     The function creates a matrix with random values and then replaces the first and the last lines
+    :return: The matrix that created.
     """
     matrix = numpy.random.rand(4, 4)
-    print(matrix)
     matrix[[0,-1]]=matrix[[-1,0]]
-    print(matrix)
+    return matrix
 
 
 #8
