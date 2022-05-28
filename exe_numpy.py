@@ -3,6 +3,9 @@ import matplotlib.pyplot
 
 
 #1
+import numpy as np
+
+
 def vector_0_to_20() -> numpy.ndarray:
     """
     The function creates a vector from 0 to 20. The digits from 9 to 15 are negative.
@@ -19,8 +22,7 @@ def multiples_5_vector() -> numpy.ndarray:
     The function creates a vector with multiples 5, up to 50.
     :return: The vector that the function created.
     """
-    vector = numpy.array(range(1,11))*5
-    return vector
+    return np.linspace(5,50,dtype=int,num=10)
 
 
 #3
@@ -51,7 +53,8 @@ def add_vector_to_rows(matrix: numpy.ndarray,to_add: numpy.ndarray) -> numpy.nda
     :param to_add: The vector to add to the matrix.
     :return:The new matrix
     """
-    return numpy.stack( [numpy.append(matrix[i], to_add, axis=1) for i in range(matrix.shape[1])], axis=0)
+    matrix += to_add
+    return matrix
 
 
 #6
@@ -95,7 +98,7 @@ def mult_array(a_array: numpy.ndarray,b_array: numpy.ndarray) -> numpy.ndarray:
     :param b_array: array of numbers
     :return: The new array
     """
-    return a_array * b_array
+    return numpy.multiply(a_array , b_array)
 
 
 #10
@@ -119,9 +122,7 @@ def one_diagonal():
     The function creates a 3-D array with ones on a diagonal and zeros elsewhere.
     :return: The matrix that created
     """
-    matrix = numpy.zeros((3, 3), dtype=int)
-    numpy.fill_diagonal(matrix,1)
-    return matrix
+    return numpy.eye(N=3,M=3,dtype=int)
 
 
 #12
@@ -142,7 +143,7 @@ def one__d_to_two_d(a_array: numpy.ndarray, b_array: numpy.ndarray):
     :param b_array: second array to the new 2-D array.
     :return: The new array
     """
-    return numpy.array(list(zip(a_array,b_array)))
+    return np.vstack((a_array,b_array))
 
 
 #14
